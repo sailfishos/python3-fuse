@@ -1,0 +1,3 @@
+[submodule "python-fuse"]
+    path = python-fuse
+    url = https://github.com/sailfish-mirror/python-fuse.git
