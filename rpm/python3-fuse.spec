@@ -1,3 +1,6 @@
+# fixme: should be defined in base system side
+%define python3_sitearch %(%{__python3} -Ic "from distutils.sysconfig import get_python_lib; print(get_python_lib(1))")
+
 Name:       python3-fuse
 Summary:    Python 3.x bindings for libfuse 2.x
 Version:    1.0.0
@@ -17,11 +20,11 @@ This is a Python interface to libfuse (https://github.com/libfuse/libfuse).
 %setup -q -n %{name}-%{version}/python-fuse
 
 %build
-%py3_build
+CFLAGS="%{optflags}" %{__python3} setup.py build %{?_smp_mflags}
 
 %install
 rm -rf %{buildroot}
-%py3_install
+%{__python3} setup.py install --skip-build --root %{buildroot}
 
 %files
 %license COPYING
