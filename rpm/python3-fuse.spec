@@ -25,5 +25,5 @@ rm -rf %{buildroot}
 
 %files
 %license COPYING
-%doc AUTHORS FAQ README.md README.new_fusepy_api example
+%doc AUTHORS FAQ README.md README.new_fusepy_api.rst example
 %{python3_sitearch}/*
